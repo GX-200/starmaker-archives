@@ -46,7 +46,7 @@ export const CHARACTERS: Character[] = [
     name: '基础攻略 & 常见问题',
     role: CharacterRole.SYSTEM,
     locations: ['系统设置', '存档'],
-    avatarUrl: `${IMG_PATH}基础攻略.png`,
+    avatarUrl: `${IMG_PATH}人物属性参照图.png`,
     description: '包含游戏的基础修改技巧、[r]常见问题修复[/r]以及基础密码。',
     unlockConditions: '无需解锁',
     guideSteps: [
@@ -69,7 +69,7 @@ export const CHARACTERS: Character[] = [
     name: '节日与特殊事件',
     role: CharacterRole.SYSTEM,
     locations: ['日历事件'],
-    avatarUrl: `${IMG_PATH}节日.png`,
+    avatarUrl: `${IMG_PATH}节日示意图.png`,
     description: '1.6B版本增加的节日系统，包含情人节、万圣节、圣诞节等特殊剧情。',
     unlockConditions: '特定日期触发',
     guideSteps: [
@@ -449,7 +449,7 @@ export const CHARACTERS: Character[] = [
     name: 'NYXARA & 大师',
     role: CharacterRole.SPECIAL,
     locations: ['森林', '神社', '霓虹灯街'],
-    avatarUrl: `${IMG_PATH}NYXARA.png`,
+    avatarUrl: `${IMG_PATH}大师.png`,
     description: '神秘的大师和魔物娘。森林开启任务。',
     unlockConditions: '森林开启任务。',
     guideSteps: [
@@ -564,7 +564,7 @@ export const CHARACTERS: Character[] = [
     name: '塞莱斯特 (Celeste - Influencer)',
     role: CharacterRole.SPECIAL,
     locations: ['网络', '商场', '荒地', '星际展'],
-    avatarUrl: `${IMG_PATH}塞莱斯特.png`,
+    avatarUrl: `${IMG_PATH}塞莱斯.png`,
     description: '超级网红。需要30k订阅，直播已解锁（完成托尼的任务），治愈安娜的抑郁症。',
     unlockConditions: '30k订阅，直播已解锁，治愈安娜抑郁。',
     guideSteps: [
