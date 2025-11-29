@@ -4,7 +4,7 @@ import { Target, Users } from 'lucide-react';
 import React from 'react';
 
 // 本地图片路径前缀 - 使用中文文件名
-const IMG_PATH = "/images/";
+const IMG_PATH = "./images/";
 
 export const HACKER_CODES: HackerCode[] = [
   { code: 'BLDRS GT', answer: 'Baldurs Gate', meaning: '博德之门' },
