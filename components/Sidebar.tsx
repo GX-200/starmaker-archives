@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ViewState } from '../types';
-import { BookOpen, Home, Terminal, History, HeartHandshake, MessageCircle, Heart, List, Gamepad2 } from 'lucide-react';
+import { BookOpen, Home, Terminal, History, HeartHandshake, MessageCircle, Heart, Calendar, Star, HelpCircle, Image, Languages, Gamepad2 } from 'lucide-react';
 import { AUTHOR_INFO } from '../constants';
 
 interface SidebarProps {
@@ -12,9 +12,14 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, onOpenDonation }) => {
   const navItems = [
-    { view: ViewState.DASHBOARD, label: '首页 / 仪表盘', icon: <Home size={22} /> },
+    { view: ViewState.DASHBOARD, label: '首页', icon: <Home size={22} /> },
     { view: ViewState.CHARACTER_LIST, label: '人物档案 & 攻略', icon: <BookOpen size={22} /> },
-    { view: ViewState.GAME_GUIDES, label: '游戏百科 & 节日', icon: <Gamepad2 size={22} /> },
+    { view: ViewState.FESTIVALS, label: '节日系统', icon: <Calendar size={22} /> },
+    { view: ViewState.SPECIAL_EVENTS, label: '特殊事件', icon: <Star size={22} /> },
+    { view: ViewState.BASIC_GUIDES, label: '基础攻略', icon: <Gamepad2 size={22} /> },
+    { view: ViewState.FAQ, label: '常见问题', icon: <HelpCircle size={22} /> },
+    { view: ViewState.FULL_EFFECTS, label: '全特效展示', icon: <Image size={22} /> },
+    { view: ViewState.LOCALIZATION_ISSUES, label: '汉化问题', icon: <Languages size={22} /> },
     { view: ViewState.HACKER_TOOL, label: '黑客答案', icon: <Terminal size={22} /> },
     { view: ViewState.CHANGELOG, label: '更新日志', icon: <History size={22} /> },
     { view: ViewState.ABOUT, label: '关于作者 & 鸣谢', icon: <HeartHandshake size={22} /> },

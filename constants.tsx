@@ -48,7 +48,8 @@ export const GAME_CHANGELOG: UpdateLog[] = [
       "新增节日系统：情人节、万圣节、圣诞节等特殊剧情",
       "增加多个新角色和隐藏剧情",
       "优化游戏性能和稳定性",
-      "修复已知bug和问题"
+      "修复已知bug和问题",
+      "游戏更新详细内容请查看官方网站：https://arvusgames.itch.io/starmakerstory"
     ]
   },
   {
@@ -58,12 +59,24 @@ export const GAME_CHANGELOG: UpdateLog[] = [
       "新增野外旅行系统",
       "增加多个支线任务",
       "优化UI界面和用户体验",
-      "修复部分剧情bug"
+      "修复部分剧情bug",
+      "游戏更新详细内容请查看官方网站：https://arvusgames.itch.io/starmakerstory"
     ]
   }
 ];
 
 export const TOOL_CHANGELOG: UpdateLog[] = [
+  {
+    version: "1.1",
+    date: "2025-12-01",
+    changes: [
+      "修复凯特、赛里斯、妮娜人物显示问题",
+      "补齐所有34个人物攻略档案",
+      "新增节日、特殊事件、基础攻略、常见问题、全特效展示图、汉化问题页面",
+      "更新侧边栏导航结构",
+      "优化页面布局和用户体验"
+    ]
+  },
   {
     version: "1.0",
     date: "2025-11-29",
@@ -84,7 +97,8 @@ export const AUTHOR_INFO = {
   supportMessage: "如果这个工具对你有帮助，请考虑支持一下作者！",
   platforms: [
     { name: "GitHub", link: "https://github.com", icon: "💻" },
-    { name: "Bilibili", link: "https://bilibili.com", icon: "📺" },
+    { name: "Bilibili", link: "https://space.bilibili.com/30964521?spm_id_from=333.1387.0.0", icon: "📺" },
+    { name: "抖音", link: "https://www.douyin.com/user/MS4wLjABAAAAWwSM3NnmEU7SDAl0r0POjk34gSZZ1SFYz0JXM0a_YOPylnDyF4ODBBnD-Ld5wDs5?from_tab_name=main", icon: "🎵" },
     { name: "Discord", link: "https://discord.com", icon: "💬" }
   ],
   qrWechat: "images/微信.png",
@@ -93,18 +107,18 @@ export const AUTHOR_INFO = {
 
 // Supporters List
 export const SUPPORTERS = [
-  "玩家A",
-  "玩家B", 
-  "玩家C",
-  "玩家D",
-  "玩家E",
-  "玩家F",
-  "玩家G",
-  "玩家H",
-  "玩家I",
-  "玩家J",
-  "玩家K",
-  "玩家L"
+  "特别鸣谢名单",
+  "汉化组全体成员",
+  "攻略整理团队",
+  "测试人员",
+  "社区贡献者",
+  "技术支持团队",
+  "美术设计团队",
+  "文案编辑团队",
+  "校对人员",
+  "项目协调员",
+  "质量保证团队",
+  "文档编写团队"
 ];
 
 export const CHARACTERS: Character[] = [
@@ -320,30 +334,33 @@ export const CHARACTERS: Character[] = [
     role: CharacterRole.SUPPORT,
     locations: ['商场', '市中心', '健身房'],
     avatarUrl: `${IMG_PATH}凯特.png`,
-    description: '商场工作人员，经常在商场和市中心区域活动。',
-    unlockConditions: '在商场多次偶遇后解锁',
+    description: '商场工作人员，健身爱好者。可以在健身房和商场遇到她。',
+    unlockConditions: '在健身房或商场多次偶遇后解锁',
     guideSteps: [
-      '在商场多次偶遇凯特后，可以开始与她互动。',
-      '完成特定任务后，可以解锁更多剧情。',
-      '与凯特建立良好关系后，可以获得商场折扣等福利。'
+      '在健身房多次偶遇凯特后，可以开始与她互动。',
+      '完成健身训练任务后，可以解锁更多剧情。',
+      '与凯特建立良好关系后，可以获得健身指导和商场折扣。',
+      '特定时间在商场服装店可以触发特殊剧情。'
     ],
-    tips: ['凯特通常在商场的工作时间出现，建议在白天前往商场寻找她。']
+    tips: [
+      '凯特通常在健身房和商场出现，建议在白天前往这些地点寻找她。',
+      '完成健身训练可以提升与凯特的关系。'
+    ]
   },
   {
-    id: 'frost_nina',
-    name: '弗罗斯特 & 妮娜 (Frost & Nina)',
+    id: 'frost',
+    name: '弗罗斯特 (Frost)',
     role: CharacterRole.SUPPORT,
     locations: ['野外旅行', '营地', '森林'],
     avatarUrl: `${IMG_PATH}弗罗斯特.png`,
-    images: [`${IMG_PATH}弗罗斯特.png`, `${IMG_PATH}妮娜.png`],
-    description: '野外旅行中的双人组合，弗罗斯特和妮娜经常一起出现在野外区域。',
+    description: '野外旅行中的角色，经常与妮娜一起出现。',
     unlockConditions: '在野外旅行中多次偶遇后解锁',
     guideSteps: [
-      '在野外旅行中多次偶遇弗罗斯特和妮娜后，可以开始与他们互动。',
+      '在野外旅行中多次偶遇弗罗斯特后，可以开始与他互动。',
       '完成特定的野外任务后，可以解锁更多剧情。',
-      '与两人建立良好关系后，可以获得野外生存技能等奖励。'
+      '与弗罗斯特建立良好关系后，可以获得野外生存技能等奖励。'
     ],
-    tips: ['弗罗斯特和妮娜通常在野外营地出现，建议在野外旅行时留意他们的踪迹。']
+    tips: ['弗罗斯特通常在野外营地出现，建议在野外旅行时留意他的踪迹。']
   },
   {
     id: 'celes',
@@ -351,15 +368,18 @@ export const CHARACTERS: Character[] = [
     role: CharacterRole.SUPPORT,
     locations: ['马里奥豪宅', '实验室', '图书馆'],
     avatarUrl: `${IMG_PATH}赛里斯.png`,
-    description: '隐藏角色，需要在马里奥豪宅的图书馆解锁实验室后才能遇到。',
-    unlockConditions: '解锁马里奥豪宅实验室后',
+    description: 'AI角色，隐藏在马里奥豪宅实验室中。需要解锁实验室才能遇到。',
+    unlockConditions: '解锁马里奥豪宅实验室（图书馆红色按钮）',
     guideSteps: [
       '前往马里奥豪宅的图书馆，找到红色按钮解锁实验室。',
-      '在实验室中可以找到赛里斯。',
-      '完成实验室相关任务后，可以解锁更多剧情。',
-      '与赛里斯建立关系后，可以获得科技相关的特殊能力。'
+      '在实验室中可以找到赛里斯，与她进行对话。',
+      '完成实验室相关任务后，可以解锁更多剧情和特殊能力。',
+      '与赛里斯建立关系后，可以获得科技相关的特殊奖励。'
     ],
-    tips: ['赛里斯是隐藏角色，需要完成特定条件才能解锁。']
+    tips: [
+      '赛里斯是隐藏角色，需要完成特定条件才能解锁。',
+      '实验室解锁后，可以在特定时间访问实验室与赛里斯互动。'
+    ]
   },
   {
     id: 'amelia',
@@ -577,14 +597,18 @@ export const CHARACTERS: Character[] = [
     role: CharacterRole.SUPPORT,
     locations: ['野外旅行', '营地', '森林'],
     avatarUrl: `${IMG_PATH}妮娜.png`,
-    description: '野外旅行中的角色，经常与弗罗斯特一起出现。',
+    description: '野外旅行向导，经常与弗罗斯特一起出现。熟悉野外生存技能。',
     unlockConditions: '在野外旅行中多次偶遇后解锁',
     guideSteps: [
       '在野外旅行中多次偶遇妮娜后，可以开始与她互动。',
-      '完成特定的野外任务后，可以解锁更多剧情。',
-      '与妮娜建立良好关系后，可以获得野外生存技能等奖励。'
+      '完成特定的野外生存任务后，可以解锁更多剧情。',
+      '与妮娜建立良好关系后，可以获得野外生存技能和特殊奖励。',
+      '在营地中可以与妮娜进行深入的对话和互动。'
     ],
-    tips: ['妮娜通常在野外营地出现，建议在野外旅行时留意她的踪迹。']
+    tips: [
+      '妮娜通常在野外营地出现，建议在野外旅行时留意她的踪迹。',
+      '完成野外生存任务可以提升与妮娜的关系。'
+    ]
   },
   {
     id: 'clay',

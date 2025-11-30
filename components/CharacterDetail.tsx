@@ -37,16 +37,16 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
     
     return parts.map((part, index) => {
       if (part.startsWith('[r]') && part.endsWith('[/r]')) {
-        return <span key={index} className="text-red-500 font-bold mx-1">{part.slice(3, -4)}</span>;
+        return <span key={index} className="text-red-500 font-bold">{part.slice(3, -4)}</span>;
       }
       if (part.startsWith('[g]') && part.endsWith('[/g]')) {
-        return <span key={index} className="text-emerald-600 font-bold mx-1">{part.slice(3, -4)}</span>;
+        return <span key={index} className="text-emerald-600 font-bold">{part.slice(3, -4)}</span>;
       }
       if (part.startsWith('[b]') && part.endsWith('[/b]')) {
-        return <span key={index} className="text-blue-600 font-bold mx-1">{part.slice(3, -4)}</span>;
+        return <span key={index} className="text-blue-600 font-bold">{part.slice(3, -4)}</span>;
       }
       if (part.startsWith('[big]') && part.endsWith('[/big]')) {
-        return <span key={index} className="text-xl md:text-2xl font-black text-slate-800 mx-1">{part.slice(5, -6)}</span>;
+        return <span key={index} className="text-xl md:text-2xl font-black text-slate-800">{part.slice(5, -6)}</span>;
       }
       return part;
     });
@@ -197,7 +197,7 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                         <div className="text-center">
                           <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border-4 border-emerald-200 mb-4">
                             <img 
-                              src="/images/安娜善良.png" 
+                              src="images/安娜善良.png" 
                               alt="安娜善良路线" 
                               className="w-full h-full object-cover" 
                             />
@@ -210,7 +210,7 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                         <div className="text-center">
                           <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border-4 border-red-200 mb-4">
                             <img 
-                              src="/images/安娜堕落.png" 
+                              src="images/安娜堕落.png" 
                               alt="安娜堕落路线" 
                               className="w-full h-full object-cover" 
                             />
