@@ -1,12 +1,13 @@
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, Suspense, lazy } from 'react';
 import Sidebar from './components/Sidebar';
 import CharacterCard from './components/CharacterCard';
-import CharacterDetail from './components/CharacterDetail';
-import HackerMiniGame from './components/HackerMiniGame';
 import DonationModal from './components/DonationModal';
+
+const CharacterDetail = lazy(() => import('./components/CharacterDetail'));
+const HackerMiniGame = lazy(() => import('./components/HackerMiniGame'));
 import { ViewState, Character, CharacterRole } from './types';
-import { CHARACTERS, GAME_CHANGELOG, TOOL_CHANGELOG, AUTHOR_INFO, SUPPORTERS } from './constants';
+import { GAME_CHANGELOG, TOOL_CHANGELOG, AUTHOR_INFO, SUPPORTERS } from './constants';
 import { Search, Bell, Sparkles, Gamepad2, Info, ChevronLeft, ChevronRight, Star, BookOpen, Terminal, History, HeartHandshake, Heart, MessageCircle } from 'lucide-react';
 
 export default function App() {
@@ -15,13 +16,23 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isDonationOpen, setIsDonationOpen] = useState(false);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const [characters, setCharacters] = useState<Character[]>([]);
+
+  useEffect(() => {
+    const fetchCharacters = async () => {
+      const response = await fetch('/starmaker-archives/data/characters.json');
+      const data = await response.json();
+      setCharacters(data);
+    };
+    fetchCharacters();
+  }, []);
 
   // Custom hero images for the carousel
   const heroCharacters = [
-    { id: 'hero-1', avatarUrl: '/images/1.png' },
-    { id: 'hero-2', avatarUrl: '/images/2.png' },
-    { id: 'hero-3', avatarUrl: '/images/3.png' },
-    { id: 'hero-4', avatarUrl: '/images/4.png' }
+    { id: 'hero-1', avatarUrl: '/starmaker-archives/images/1.png' },
+    { id: 'hero-2', avatarUrl: '/starmaker-archives/images/2.png' },
+    { id: 'hero-3', avatarUrl: '/starmaker-archives/images/3.png' },
+    { id: 'hero-4', avatarUrl: '/starmaker-archives/images/4.png' }
   ];
 
   useEffect(() => {
@@ -33,12 +44,12 @@ export default function App() {
 
   // Separate data based on views
   const characterList = useMemo(() => {
-    return CHARACTERS.filter(c => c.role !== CharacterRole.SYSTEM);
-  }, []);
+    return characters.filter(c => c.role !== CharacterRole.SYSTEM);
+  }, [characters]);
 
   const guideList = useMemo(() => {
-    return CHARACTERS.filter(c => c.role === CharacterRole.SYSTEM);
-  }, []);
+    return characters.filter(c => c.role === CharacterRole.SYSTEM);
+  }, [characters]);
 
   // Search logic
   const filteredItems = useMemo(() => {
@@ -48,7 +59,7 @@ export default function App() {
     
     // If searching globally while in other views, search everything
     if (currentView !== ViewState.CHARACTER_LIST) {
-       sourceList = CHARACTERS;
+       sourceList = characters;
     }
 
     return sourceList.filter(c => 
@@ -65,7 +76,11 @@ export default function App() {
   const renderContent = () => {
     switch (currentView) {
       case ViewState.HACKER_TOOL:
-        return <HackerMiniGame />;
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <HackerMiniGame />
+          </Suspense>
+        );
       
       case ViewState.CHANGELOG:
         return (
@@ -831,10 +846,12 @@ export default function App() {
 
       {/* Modals */}
       {selectedCharacter && (
-        <CharacterDetail 
-          character={selectedCharacter} 
-          onClose={() => setSelectedCharacter(null)} 
-        />
+        <Suspense fallback={<LoadingSpinner />}>
+          <CharacterDetail 
+            character={selectedCharacter} 
+            onClose={() => setSelectedCharacter(null)} 
+          />
+        </Suspense>
       )}
 
       <DonationModal 
@@ -844,3 +861,9 @@ export default function App() {
     </div>
   );
 };
+
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center h-full">
+    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+  </div>
+);
