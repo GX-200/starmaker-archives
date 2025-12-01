@@ -15,7 +15,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/20 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white text-slate-900 w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row h-[520px] animate-slide-up border border-white/60">
+      <div className="bg-white text-slate-900 w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row md:h-[520px] animate-slide-up border border-white/60">
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 p-2 bg-white/50 hover:bg-slate-100 rounded-full transition-colors z-20 backdrop-blur-sm"
@@ -24,7 +24,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
         </button>
 
         {/* Left Side - Info */}
-        <div className="w-full md:w-1/2 bg-gradient-to-br from-slate-50 to-slate-100 p-8 flex flex-col justify-center items-center text-center border-r border-slate-100 relative overflow-hidden">
+        <div className="w-full md:w-1/2 bg-gradient-to-br from-slate-50 to-slate-100 p-6 md:p-8 flex flex-col justify-center items-center text-center md:border-r border-b md:border-b-0 border-slate-100 relative overflow-hidden">
           {/* Background decorative circles */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-pink-200/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 right-0 w-32 h-32 bg-purple-200/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -54,10 +54,10 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Right Side - Payment */}
-        <div className="w-full md:w-1/2 bg-white p-8 flex flex-col">
-          <h3 className="text-lg font-bold text-slate-800 mb-6 text-center">选择支付方式</h3>
+        <div className="w-full md:w-1/2 bg-white p-6 md:p-8 flex flex-col">
+          <h3 className="text-lg font-bold text-slate-800 mb-4 md:mb-6 text-center">选择支付方式</h3>
           
-          <div className="flex gap-2 mb-6 bg-slate-50 p-1.5 rounded-xl border border-slate-100">
+          <div className="flex gap-2 mb-4 md:mb-6 bg-slate-50 p-1.5 rounded-xl border border-slate-100">
             <button 
               onClick={() => setActiveMethod('wechat')}
               className={`flex-1 py-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 ${activeMethod === 'wechat' ? 'bg-white text-green-600 shadow-sm border border-slate-100' : 'text-slate-400 hover:text-slate-600'}`}
@@ -72,16 +72,16 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          <div className="flex-1 flex items-center justify-center bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 relative group overflow-hidden">
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-               <div className={`w-40 h-40 bg-white shadow-xl p-2 rounded-xl ${activeMethod === 'wechat' ? 'ring-2 ring-green-100' : 'ring-2 ring-blue-100'} transition-all duration-300 transform group-hover:scale-105`}>
+          <div className="flex-1 flex items-center justify-center bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 relative group overflow-hidden min-h-[280px] md:min-h-0">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-4 md:p-6">
+               <div className={`w-32 h-32 md:w-40 md:h-40 bg-white shadow-xl p-2 rounded-xl ${activeMethod === 'wechat' ? 'ring-2 ring-green-100' : 'ring-2 ring-blue-100'} transition-all duration-300 transform group-hover:scale-105`}>
                  <img 
                    src={activeMethod === 'wechat' ? AUTHOR_INFO.qrWechat : AUTHOR_INFO.qrAlipay} 
                    alt={activeMethod === 'wechat' ? "微信支付" : "支付宝"}
                    className="w-full h-full object-cover rounded-lg"
                  />
                </div>
-               <p className="mt-5 text-xs text-slate-400 font-medium flex items-center gap-1">
+               <p className="mt-4 md:mt-5 text-xs text-slate-400 font-medium flex items-center gap-1">
                  <Smartphone size={12} />
                  扫描二维码支持
                </p>
