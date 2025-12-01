@@ -20,7 +20,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, onClick }) => 
   return (
     <div 
       onClick={onClick}
-      className="group relative h-80 bg-white rounded-3xl overflow-hidden border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 cursor-pointer hover:-translate-y-2"
+      className="ui-card relative h-80 cursor-pointer"
     >
       {/* Image Container */}
       <div className="h-52 overflow-hidden relative bg-slate-100">

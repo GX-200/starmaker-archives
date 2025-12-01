@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ViewState } from '../types';
-import { BookOpen, Home, Terminal, History, HeartHandshake, MessageCircle, Heart, Calendar, Star, HelpCircle, Image, Languages, Gamepad2 } from 'lucide-react';
+import { BookOpen, Home, Terminal, History, HeartHandshake, MessageCircle, Heart, Calendar, Star, HelpCircle, Image, Languages, Gamepad2, Plane, PartyPopper, Zap } from 'lucide-react';
 import { AUTHOR_INFO } from '../constants';
 
 interface SidebarProps {
@@ -14,13 +14,11 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, onOpenDona
   const navItems = [
     { view: ViewState.DASHBOARD, label: '首页', icon: <Home size={22} /> },
     { view: ViewState.CHARACTER_LIST, label: '人物档案 & 攻略', icon: <BookOpen size={22} /> },
-    { view: ViewState.FESTIVALS, label: '节日系统', icon: <Calendar size={22} /> },
-    { view: ViewState.SPECIAL_EVENTS, label: '特殊事件', icon: <Star size={22} /> },
-    { view: ViewState.BASIC_GUIDES, label: '基础攻略', icon: <Gamepad2 size={22} /> },
-    { view: ViewState.FAQ, label: '常见问题', icon: <HelpCircle size={22} /> },
-    { view: ViewState.FULL_EFFECTS, label: '全特效展示', icon: <Image size={22} /> },
-    { view: ViewState.LOCALIZATION_ISSUES, label: '汉化问题', icon: <Languages size={22} /> },
+    { view: ViewState.VACATION_GUIDES, label: '度假旅行', icon: <Plane size={22} /> },
+    { view: ViewState.FESTIVALS, label: '节日', icon: <PartyPopper size={22} /> },
+    { view: ViewState.FULL_EFFECTS, label: '全特征展示', icon: <Zap size={22} /> },
     { view: ViewState.HACKER_TOOL, label: '黑客答案', icon: <Terminal size={22} /> },
+    { view: ViewState.FAQ, label: '常见问题', icon: <HelpCircle size={22} /> },
     { view: ViewState.CHANGELOG, label: '更新日志', icon: <History size={22} /> },
     { view: ViewState.ABOUT, label: '关于作者 & 鸣谢', icon: <HeartHandshake size={22} /> },
   ];
@@ -36,9 +34,9 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, onOpenDona
           <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-win-accent via-purple-500 to-win-highlight animate-gradient-x font-sans tracking-tight leading-tight">
             STARMAKER<br/>ARCHIVES
           </h1>
-          <p className="text-sm text-win-muted mt-2 font-mono tracking-widest uppercase">
-            v1.0 // GUIDE_SYSTEM
-          </p>
+        <p className="text-sm text-win-muted mt-2 font-mono tracking-widest uppercase">
+          v1.1 // GUIDE_SYSTEM
+        </p>
         </div>
       </div>
 

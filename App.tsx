@@ -8,7 +8,7 @@ const CharacterDetail = lazy(() => import('./components/CharacterDetail'));
 const HackerMiniGame = lazy(() => import('./components/HackerMiniGame'));
 import { ViewState, Character, CharacterRole } from './types';
 import { GAME_CHANGELOG, TOOL_CHANGELOG, AUTHOR_INFO, SUPPORTERS } from './constants';
-import { Search, Bell, Sparkles, Gamepad2, Info, ChevronLeft, ChevronRight, Star, BookOpen, Terminal, History, HeartHandshake, Heart, MessageCircle } from 'lucide-react';
+import { Search, Bell, Sparkles, Gamepad2, Info, ChevronLeft, ChevronRight, Star, BookOpen, Terminal, History, HeartHandshake, Heart, MessageCircle, Plane, PartyPopper, Zap, HelpCircle } from 'lucide-react';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<ViewState>(ViewState.DASHBOARD);
@@ -75,6 +75,196 @@ export default function App() {
 
   const renderContent = () => {
     switch (currentView) {
+      case ViewState.VACATION_GUIDES:
+        return (
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="text-center">
+              <h1 className="text-5xl font-black text-slate-800 mb-6 tracking-tight">度假旅行三星达成条件</h1>
+              <p className="text-xl text-slate-500 max-w-2xl mx-auto">热带假期、霜度假期、日本度假完整攻略指南</p>
+            </div>
+            
+            {/* 度假旅行三星达成条件展示图片 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">度假旅行三星达成条件展示</h3>
+              <div className="flex justify-center">
+                <img 
+                  src="/images/度假旅行三星达成条件.png" 
+                  alt="度假旅行三星达成条件" 
+                  className="rounded-2xl w-full max-w-2xl shadow-md"
+                />
+              </div>
+            </div>
+            
+            {/* 热带假期 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🦩</span>
+                <h2 className="text-3xl font-black text-slate-800">热带假期</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-orange-50 p-6 rounded-2xl border border-orange-200">
+                  <h3 className="text-xl font-bold text-orange-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第一个星星
+                  </h3>
+                  <ul className="space-y-3 text-orange-700">
+                    <li>• 去海滩，在阳光下放松</li>
+                    <li>• 选择享受日光浴，安娜会告诉你她很渴</li>
+                    <li>• 选择为您的角质摩洛伊斯兰解放阵线拍照</li>
+                    <li>• 她之后会累了，要求早睡，晚上她会有小动作，你继续假装睡觉</li>
+                    <li>• 为了得到这个星星，她不能有任何悔恨（只有 2 个 cg）</li>
+                    <li>• 然后需要多次去沙滩，遇到短发女粉丝，并达成对话邀请到房间触发CG</li>
+                    <li>• 推荐安娜好感度达到5再来否则不触发</li>
+                    <li>• 然后好感度达到5时白天准备离开时触发CG</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-orange-50 p-6 rounded-2xl border border-orange-200">
+                  <h3 className="text-xl font-bold text-orange-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第二个星星
+                  </h3>
+                  <ul className="space-y-3 text-orange-700">
+                    <li>• 去参加选美比赛（你会输）</li>
+                    <li>• 去找商场找祖里要一件特别的泳衣</li>
+                    <li>• 再次参加选美返回比赛并获胜</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-orange-50 p-6 rounded-2xl border border-orange-200">
+                  <h3 className="text-xl font-bold text-orange-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第三个星星
+                  </h3>
+                  <ul className="space-y-3 text-orange-700">
+                    <li>• 去酒吧。然后在你的房间里和莱拉尼触发CG</li>
+                    <li>• 参加选美比赛</li>
+                    <li>• 下次访问时去海滩，芙蕾雅应该会出现（第 1 步或第 2 步将触发芙蕾雅出现，但两者都需要继续）</li>
+                    <li>• 然后告诉安娜："我们在阳光下放松一下怎么样？"</li>
+                    <li>• "当然没问题"</li>
+                    <li>• "你为什么不给我看看？"</li>
+                    <li>• 下次拜访芙蕾雅应该接近您和安娜并邀请她到房间</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 霜度假期 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🏔️</span>
+                <h2 className="text-3xl font-black text-slate-800">霜度假期</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+                  <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第一个星星
+                  </h3>
+                  <ul className="space-y-3 text-blue-700">
+                    <li>• 去泡温泉鼓掌</li>
+                    <li>• 在浪漫路线中（仅适用于浪漫路线）：</li>
+                    <li>• "我看得出来，你正在发光"</li>
+                    <li>• "这是一个仅供成年人使用的地方。这在这里并不少见。"</li>
+                    <li>• "我们可以做任何我们想做的事"</li>
+                    <li>• 在堕落路线中，你不会告诉她停下来</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+                  <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第二个星星
+                  </h3>
+                  <ul className="space-y-3 text-blue-700">
+                    <li>• 去参加节日喝点酒，之后安娜会送你一份礼物</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+                  <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第三个星星
+                  </h3>
+                  <ul className="space-y-3 text-blue-700">
+                    <li>• 去镇上警告你关于狼人的事情。（狼人的性别受您的选择影响）</li>
+                    <li>• 去露营，遇到狼人。</li>
+                    <li>• 再见老人。</li>
+                    <li>• 在商场的商店购买精致的肉类</li>
+                    <li>• 返回喂狼人肉</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 日本度假 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🏯</span>
+                <h2 className="text-3xl font-black text-slate-800">日本度假</h2>
+              </div>
+              
+              <div className="bg-red-50 p-6 rounded-2xl border border-red-200 mb-6">
+                <h3 className="text-xl font-bold text-red-800 mb-4">日本度假前要：</h3>
+                <ul className="space-y-3 text-red-700">
+                  <li>• 需要通过以下方式与阿德里安成为朋友</li>
+                  <li>• 给他旅行的钱，并与他分享至少一个女孩，可能的选择是：</li>
+                  <li>• 共享安娜（不需要完成 只需要告诉安娜解锁）</li>
+                  <li>• 共享萨曼莎</li>
+                  <li>• 共享爱丽丝 （您必须在游戏之夜进行 3 次才能计入行程）</li>
+                  <li>• 去做两次日式按摩 与樱花一起拍摄</li>
+                </ul>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
+                  <h3 className="text-xl font-bold text-red-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第一个星星
+                  </h3>
+                  <ul className="space-y-3 text-red-700">
+                    <li>• 去神社见千寻</li>
+                    <li>• 一周后回去 大寿她的事情</li>
+                    <li>• 问问千寻大寿说了什么</li>
+                    <li>• 下周寻找弘二（酒店对话中的选项）并付钱给他</li>
+                    <li>• 下周去见千寻告诉她你知道真相并要求加入</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
+                  <h3 className="text-xl font-bold text-red-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第二个星星
+                  </h3>
+                  <ul className="space-y-3 text-red-700">
+                    <li>• 去咖啡馆两次。</li>
+                    <li>• 询问她的是否在菜单上并付款。</li>
+                    <li>• 接下来的一周她会邀请你到后面，再付钱给她一场戏</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
+                  <h3 className="text-xl font-bold text-red-800 mb-4 flex items-center gap-3">
+                    <span className="text-2xl">⭐</span>
+                    第三个星星
+                  </h3>
+                  <ul className="space-y-3 text-red-700">
+                    <li>• 在去寺庙的火车上遇到梅和她的丈夫两次，第二次把你的地址给她</li>
+                    <li>• 给她打电话到酒店两次</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">完成奖励</h3>
+                  <p className="text-green-700">——完成所有星星后，您将在下个周末收到一件送给安娜的新服装 ——</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
       case ViewState.HACKER_TOOL:
         return (
           <Suspense fallback={<LoadingSpinner />}>
@@ -229,72 +419,332 @@ export default function App() {
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center">
               <h1 className="text-5xl font-black text-slate-800 mb-6 tracking-tight">节日系统</h1>
-              <p className="text-xl text-slate-500 max-w-2xl mx-auto">全年节日时间表、特殊奖励及参与方式</p>
+              <p className="text-xl text-slate-500 max-w-2xl mx-auto">1.6B 增加节日系统，每个节日有特定的内容</p>
             </div>
             
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">节日系统介绍</h3>
-              <p className="text-slate-600 mb-6 leading-relaxed">
-                游戏中有多个节日活动，每个节日都有特定的触发时间和特殊奖励。节日期间可以与特定角色互动，解锁特殊对话和剧情。
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-4">主要节日列表</h4>
-                  <ul className="space-y-3 text-slate-600">
-                    <li>• <strong>新年庆典</strong> (1月1日) - 特殊对话选项，好感度大幅提升</li>
-                    <li>• <strong>情人节</strong> (2月14日) - 浪漫剧情触发，限定礼物交换</li>
-                    <li>• <strong>万圣节</strong> (10月31日) - 特殊服装解锁，隐藏彩蛋</li>
-                    <li>• <strong>圣诞节</strong> (12月25日) - 限定礼物交换，特殊结局触发</li>
-                    <li>• <strong>生日派对</strong> (角色生日) - 专属剧情，好感度翻倍</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-4">季节性活动</h4>
-                  <ul className="space-y-3 text-slate-600">
-                    <li>• <strong>春季赏花</strong> (3-4月) - 好感度提升，拍照功能解锁</li>
-                    <li>• <strong>夏季海滩</strong> (7-8月) - 泳装剧情，特殊互动</li>
-                    <li>• <strong>秋季收获</strong> (9-10月) - 特殊道具获取，隐藏成就</li>
-                    <li>• <strong>冬季滑雪</strong> (12-1月) - 隐藏成就，限定服装</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">节日参与技巧</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-4">时间管理</h4>
-                  <ul className="space-y-3 text-slate-600">
-                    <li>• 提前准备节日礼物</li>
-                    <li>• 合理安排时间参加所有活动</li>
-                    <li>• 注意节日触发条件</li>
-                    <li>• 保存多个存档点</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-4">奖励获取</h4>
-                  <ul className="space-y-3 text-slate-600">
-                    <li>• 完成节日任务获得特殊道具</li>
-                    <li>• 与特定角色互动解锁隐藏剧情</li>
-                    <li>• 收集节日限定服装</li>
-                    <li>• 达成节日相关成就</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
+            {/* 节日示意图 */}
             <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-800 mb-6">节日示意图</h3>
               <div className="flex justify-center">
                 <img 
                   src="/images/节日示意图.png" 
                   alt="节日活动示意图" 
-                  className="rounded-2xl max-w-full h-auto shadow-md"
+                  className="rounded-2xl w-full max-w-2xl shadow-md"
                 />
+              </div>
+            </div>
+            
+            {/* 情人节 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">💌</span>
+                <h2 className="text-3xl font-black text-slate-800">情人节</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-pink-50 p-6 rounded-2xl border border-pink-200">
+                  <h3 className="text-xl font-bold text-pink-800 mb-4">触发条件</h3>
+                  <ul className="space-y-3 text-pink-700">
+                    <li>• 一旦你走出卧室，安娜如果被踢了和约瑟夫都会开始这个场景</li>
+                    <li>• 只是不要选择"听起来很沮丧数我出去"场景将继续</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-pink-50 p-6 rounded-2xl border border-pink-200">
+                  <h3 className="text-xl font-bold text-pink-800 mb-4">剧情分支</h3>
+                  <ul className="space-y-3 text-pink-700">
+                    <li>• 要么3个人都去看电影</li>
+                    <li>• 要么只有安娜和主角会有相同的场景</li>
+                    <li>• 一旦安娜在自卫时给主角打枪，选择前两个选项来互动在安娜的嘴上或者最后一个互动</li>
+                    <li>• 回到家后约瑟夫和安娜或者如果独自一人安娜会邀请您到卧室继续[没有"场景"，但有一个有趣的片段阿德里安站在门外]</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 复活节 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🗿</span>
+                <h2 className="text-3xl font-black text-slate-800">复活节</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">当前状态</h3>
+                  <ul className="space-y-3 text-green-700">
+                    <li>• 目前没有这个假期的场景</li>
+                    <li>• 你可以在地图上找到蛋，这些蛋会给你经验值（一旦代码固定了，就会有半个条）</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">蛋的位置</h3>
+                  <ul className="space-y-3 text-green-700">
+                    <li>• 酒吧</li>
+                    <li>• 桑拿（马里奥别墅）</li>
+                    <li>• 酒店</li>
+                    <li>• 胡同</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 约瑟夫的生日 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🎉</span>
+                <h2 className="text-3xl font-black text-slate-800">约瑟夫的生日</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+                  <h3 className="text-xl font-bold text-blue-800 mb-4">当前状态</h3>
+                  <ul className="space-y-3 text-blue-700">
+                    <li>• 目前没有现场，如果你去他的办公室，你可以和约瑟夫聊聊他的生日</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 周年 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">💑</span>
+                <h2 className="text-3xl font-black text-slate-800">周年</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4">共享路线</h3>
+                  <ul className="space-y-3 text-purple-700">
+                    <li>• 如果与约瑟夫和阿德里安分享，并完成4P徒步旅行（像以前一样获得奖杯）</li>
+                    <li>• 你一走出房间，约瑟夫就会接你，叫你去车库</li>
+                    <li>• 一旦到了那里，他会告诉你在主人房给安娜一个惊喜，就像这次更新之前一样</li>
+                    <li>• 场景与本次更新之前的婚纱相同</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4">独自路线</h3>
+                  <ul className="space-y-3 text-purple-700">
+                    <li>• 如果你在独自路线上，去厨房，安娜会告诉你和你一起度过周年纪念日的事情，她会邀请你到主人房</li>
+                    <li>• 与所有其他性互动活动一样，您需要在工作室进行游戏时生交安娜</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
+                  <h3 className="text-xl font-bold text-red-800 mb-4">已知错误</h3>
+                  <ul className="space-y-3 text-red-700">
+                    <li>• 即使不满足条件，约瑟夫当前也总是显示</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 阿德里安的生日 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🎉</span>
+                <h2 className="text-3xl font-black text-slate-800">阿德里安的生日</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-200">
+                  <h3 className="text-xl font-bold text-indigo-800 mb-4">当前状态</h3>
+                  <ul className="space-y-3 text-indigo-700">
+                    <li>• 目前没有场景，如果你去他的卧室，你可以和阿德里安聊聊他的生日</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 主角生日 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🎂</span>
+                <h2 className="text-3xl font-black text-slate-800">主角生日</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-yellow-50 p-6 rounded-2xl border border-yellow-200">
+                  <h3 className="text-xl font-bold text-yellow-800 mb-4">安娜的惊喜</h3>
+                  <ul className="space-y-3 text-yellow-700">
+                    <li>• 去厨房和安娜谈谈，她会邀请你到衣柜里来一个特别的惊喜</li>
+                    <li>• 目前，其他互动，例如Depression Quest，有可能在假期期间触发。这将在未来的更新中予以考虑</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-yellow-50 p-6 rounded-2xl border border-yellow-200">
+                  <h3 className="text-xl font-bold text-yellow-800 mb-4">阿德里安的礼物</h3>
+                  <ul className="space-y-3 text-yellow-700">
+                    <li>• 你可以去阿德里安的房间拜访他，这将引发一场简短的对话，你会被授予：[死灵法师迷你]</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 安娜的生日 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">💐</span>
+                <h2 className="text-3xl font-black text-slate-800">安娜的生日</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-pink-50 p-6 rounded-2xl border border-pink-200">
+                  <h3 className="text-xl font-bold text-pink-800 mb-4">触发条件</h3>
+                  <ul className="space-y-3 text-pink-700">
+                    <li>• 一旦你走出房间，就会开始与阿德里安的对话</li>
+                    <li>• 场景将转移到餐桌上</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-pink-50 p-6 rounded-2xl border border-pink-200">
+                  <h3 className="text-xl font-bold text-pink-800 mb-4">路线分支</h3>
+                  <ul className="space-y-3 text-pink-700">
+                    <li>• <strong>如果完全分享并完成了远足之旅：</strong>安娜将赤身，只要您不否认早餐的乐趣，多人会议就会上演</li>
+                    <li>• <strong>如果完全分享但没有进行远足之旅，或者只是与阿德里安分享或单独分享：</strong>安娜会放下她的叉子，给你一个秘密的CG</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-pink-50 p-6 rounded-2xl border border-pink-200">
+                  <h3 className="text-xl font-bold text-pink-800 mb-4">后续互动</h3>
+                  <ul className="space-y-3 text-pink-700">
+                    <li>• 场景结束后，如果你去客厅，安娜和夏洛特之间会发生一个小小的互动。夏洛特给了安娜"一些东西"（一份将来可能很重要的礼物），他们拥抱了</li>
+                    <li>• 如果你去厨房，安娜会告诉你，她打算放松一下，用香薰蜡烛洗澡，但没有</li>
+                    <li>• 去商场的商店买蜡烛。凯特会告诉你，她刚刚把最后2个卖给了一个神秘的人</li>
+                    <li>• 去霓虹街的道具商店，见见零女士。她会告诉你帮她一个忙，你可以服从，场景就会上演，或者告诉她"不行，拜托。就让我来吧！"在这种情况下，她会告诉你你很无聊，然后就把蜡烛递给你</li>
+                    <li>• 回到家，去厨房把蜡烛给安娜</li>
+                    <li>• 这时你可以去洗手间和安娜一起拍一场戏，或者[如果你目前正在与阿德里安合住]你可以上楼到阿德里安的房间，告诉他安娜会洗澡，想知道他是否想和你一起</li>
+                    <li>• 去洗手间，安娜阿德里安和主角将多角色CG</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
+                  <h3 className="text-xl font-bold text-red-800 mb-4">已知错误</h3>
+                  <ul className="space-y-3 text-red-700">
+                    <li>• 请记住，这个场景目前有错误，因为阿德里安只会不断重复相同的对话，从不去洗手间。这将在 1.6c 中修复</li>
+                    <li>• 对于分享场景，该要求与其他分享场景相同。安娜一定是在工作室里被生生地伸伸了。（目前有些地方此条件不正确，但这些都是 BUG）</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 万圣节 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">👻</span>
+                <h2 className="text-3xl font-black text-slate-800">万圣节</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-orange-50 p-6 rounded-2xl border border-orange-200">
+                  <h3 className="text-xl font-bold text-orange-800 mb-4">触发条件</h3>
+                  <ul className="space-y-3 text-orange-700">
+                    <li>• 安娜会在您离开房间后立即邀请您参加夏洛特的万圣节派对</li>
+                    <li>• 如果你接受，场景会直接把你带到夏洛特的房子</li>
+                    <li>• 在这里，您将能够与阿德里安、约瑟夫（如果不是被踢出）、夏洛特和安娜进行简短的交谈</li>
+                    <li>• 你可以看出安娜的服装让你很难受（这里不会发生任何事情）</li>
+                    <li>• 一旦你决定离开派对，而不是离开，你会看到安娜和主角在夏洛特的浴室里的场景</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-orange-50 p-6 rounded-2xl border border-orange-200">
+                  <h3 className="text-xl font-bold text-orange-800 mb-4">秘密场景</h3>
+                  <ul className="space-y-3 text-orange-700">
+                    <li>• 检查卧室里的 PC，您会注意到一个骷髅头图标（单击它）。它将为您提供一些要遵循的说明</li>
+                    <li>• 去洗手间，选择在镜子前说词（鬼女在那里，但没有她的CG）</li>
+                    <li>• 前往神社（森林 - 寺庙 - 神社）[无需做迷你游戏]。如果您解锁了技能，您可以从这里回到您的卧室，或者按菜单上的汽车图标传送到它</li>
+                    <li>• 到达卧室后，点亮日历图标附近的蜡烛（如果它不起作用，请熄灭并再次亮起）</li>
+                    <li>• 将出现一个门户，并为您提供 2 个选择：</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4">选择 1：主角 x 扎齐亚</h3>
+                  <ul className="space-y-3 text-purple-700">
+                    <li>• "我看到曲线......䏎？恶魔之物......"</li>
+                    <li>• 不要选择"上帝！保护我免受这个口渴的恶魔的伤害！靠主的力量！"，因为这将结束场景</li>
+                    <li>• 总共有 4 个 cgs（图片），但要获得所有 4 个，请选择第 4 个对话框中的"我不确定你是否值得我的东西"</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-50 p-6 rounded-2xl border border-purple-200">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4">选择 2：主角 x 安娜 x 瓦尔托</h3>
+                  <ul className="space-y-3 text-purple-700">
+                    <li>• "我看到了一些巨大的东西......怪物？恶魔？"</li>
+                    <li>• 不要选择"Honestly...我不知道。你想走就走。"也不要在安娜出现时把她送走。这两个决定都将结束这一幕</li>
+                    <li>• 之后的所有决定都授予相同的 cgs（pics） 只是对话框中的更改</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 圣诞节 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🎄</span>
+                <h2 className="text-3xl font-black text-slate-800">圣诞节</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">触发条件</h3>
+                  <ul className="space-y-3 text-green-700">
+                    <li>• 一旦你到达走廊，阿德里安会遇到你，场景就会开始</li>
+                    <li>• 如果你在完全共享路线上（与阿德里安和约瑟夫共享）并在堕落路线上进行了多人徒步旅行，安娜将穿着"圣诞老人内衣"（这不会影响场景）</li>
+                    <li>• 你可以指着槲寄生来拍 "安娜的吻" 的照片</li>
+                    <li>• 无论走哪条路，约瑟夫都会浪费在沙发上睡觉</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-green-50 p-6 rounded-2xl border border-green-200">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">路线分支</h3>
+                    <ul className="space-y-3 text-green-700">
+                      <li>• <strong>如果在安娜和阿德里安的共享路线上：</strong>夏洛特会给出欢乐时光（FFMM）的想法 Mc x 夏洛特 和 阿德里安 x 安娜 → 安娜吐痰，而夏洛特吃掉她。（阿德里安 x 夏洛特 不会在现场发生）</li>
+                      <li>• <strong>如果在独自路线上：</strong>阿德里安会要求去他的卧室，而 Mc 会在客厅里与夏洛特和安娜一起演出</li>
+                    </ul>
+                </div>
+                
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
+                  <h3 className="text-xl font-bold text-red-800 mb-4">已知错误</h3>
+                  <ul className="space-y-3 text-red-700">
+                    <li>• 即使被踢出，约瑟夫也总是会出现</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* 除夕夜 */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl">🎅</span>
+                <h2 className="text-3xl font-black text-slate-800">除夕夜</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+                  <h3 className="text-xl font-bold text-blue-800 mb-4">触发条件</h3>
+                  <ul className="space-y-3 text-blue-700">
+                    <li>• 一旦你走出卧室，安娜就会开始谈论除夕派对</li>
+                    <li>• 对话结束后，如果您已完成各自的路线，您将能够邀请 4 个女孩中的 1 个，或者不邀请：</li>
+                    <li>• 阿米莉亚</li>
+                    <li>• 凯特</li>
+                    <li>• 托尼</li>
+                    <li>• 喜万里</li>
+                    <li>• （如果您选择"这次不"，您将与安娜共度时光）</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-200">
+                  <h3 className="text-xl font-bold text-blue-800 mb-4">剧情发展</h3>
+                  <ul className="space-y-3 text-blue-700">
+                    <li>• 泳池边的吻戏将与你邀请的女孩或安娜一起上演。如果选择了安娜，将有 2 张照片，否则为 1 张</li>
+                    <li>• 在这个场景之后，你会进入房子，一个场景会上演，安娜和约瑟夫问你在哪里。不要选择"这就是我离开的提示。晚安！"，因为这将结束场景</li>
+                    <li>• 如果您选择不邀请任何女孩，而是与安娜共度时光，那么在接吻场景中的 2 之后将不会有 JOSEPH 的场景。OFC 这个场景需要约瑟夫</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -370,19 +820,19 @@ export default function App() {
                 <img 
                   src="/images/女鬼触发.png" 
                   alt="女鬼触发条件" 
-                  className="rounded-2xl w-full h-auto shadow-md"
+                  className="rounded-2xl w-full h-48 object-cover shadow-md"
                 />
                 <img 
                   src="/images/女鬼触发2.png" 
                   alt="女鬼触发条件2" 
-                  className="rounded-2xl w-full h-auto shadow-md"
+                  className="rounded-2xl w-full h-48 object-cover shadow-md"
                 />
               </div>
               <div className="mt-6 flex justify-center">
                 <img 
                   src="/images/AI赛里斯触发条件.png" 
                   alt="AI赛里斯触发条件" 
-                  className="rounded-2xl max-w-full h-auto shadow-md"
+                  className="rounded-2xl w-full max-w-md h-64 object-cover shadow-md"
                 />
               </div>
             </div>
@@ -425,7 +875,30 @@ export default function App() {
                 <img 
                   src="/images/加点示意图.png" 
                   alt="属性加点示意图" 
-                  className="rounded-2xl max-w-full h-auto shadow-md"
+                  className="rounded-2xl w-full max-w-2xl shadow-md"
+                />
+              </div>
+            </div>
+            
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">特殊事件触发条件</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img 
+                  src="/images/女鬼触发.png" 
+                  alt="女鬼触发条件" 
+                  className="rounded-2xl w-full h-48 object-cover shadow-md"
+                />
+                <img 
+                  src="/images/女鬼触发2.png" 
+                  alt="女鬼触发条件2" 
+                  className="rounded-2xl w-full h-48 object-cover shadow-md"
+                />
+              </div>
+              <div className="mt-6 flex justify-center">
+                <img 
+                  src="/images/AI赛里斯触发条件.png" 
+                  alt="AI赛里斯触发条件" 
+                  className="rounded-2xl w-full max-w-md h-64 object-cover shadow-md"
                 />
               </div>
             </div>
@@ -437,38 +910,96 @@ export default function App() {
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center">
               <h1 className="text-5xl font-black text-slate-800 mb-6 tracking-tight">常见问题解答</h1>
-              <p className="text-xl text-slate-500 max-w-2xl mx-auto">游戏卡死、修改器使用及技术问题</p>
+              <p className="text-xl text-slate-500 max-w-2xl mx-auto">游戏攻略大全及实用技巧</p>
             </div>
             
-            <div className="space-y-8">
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">游戏卡死问题</h3>
-                <ul className="space-y-3 text-slate-600">
-                  <li>• 存档损坏：使用备份存档或重新开始</li>
-                  <li>• 脚本冲突：关闭其他修改器</li>
-                  <li>• 内存不足：清理缓存重启游戏</li>
-                  <li>• 版本不匹配：更新到最新版本</li>
-                </ul>
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">游戏攻略大全</h3>
+              
+              <div className="space-y-6 mb-8">
+                <div className="bg-blue-50 p-4 rounded-2xl border border-blue-200">
+                  <h4 className="text-xl font-bold text-blue-800 mb-3">约瑟夫保险箱密码</h4>
+                  <p className="text-blue-700 font-mono text-lg">7172</p>
+                </div>
+                
+                <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
+                  <h4 className="text-xl font-bold text-green-800 mb-3">游戏卡死修复</h4>
+                  <p className="text-green-700">如果游戏卡在界面，可以连续按10次F1键进行重置（由水友吴*发现，特别感谢）。</p>
+                </div>
+                
+                <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
+                  <h4 className="text-xl font-bold text-purple-800 mb-3">女鬼触发条件</h4>
+                  <p className="text-purple-700">点击客厅电视机红色按钮，如果闪烁出现对话即达成（没触发睡觉再试）。触发完成后获得塔防道具"鬼"。</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <img 
+                      src="/images/女鬼触发.png" 
+                      alt="女鬼触发条件" 
+                      className="rounded-2xl w-full h-48 object-cover shadow-md"
+                    />
+                    <img 
+                      src="/images/女鬼触发2.png" 
+                      alt="女鬼触发条件2" 
+                      className="rounded-2xl w-full h-48 object-cover shadow-md"
+                    />
+                  </div>
+                </div>
+                
+                <div className="bg-orange-50 p-4 rounded-2xl border border-orange-200">
+                  <h4 className="text-xl font-bold text-orange-800 mb-3">AI赛里斯触发条件</h4>
+                  <p className="text-orange-700">马里奥豪宅的图书馆墙上有个红色按钮可以解锁实验室。</p>
+                  <div className="flex justify-center mt-4">
+                    <img 
+                      src="/images/AI赛里斯触发条件.png" 
+                      alt="AI赛里斯触发条件" 
+                      className="rounded-2xl w-full max-w-md h-64 object-cover shadow-md"
+                    />
+                  </div>
+                </div>
+                
+                <div className="bg-red-50 p-4 rounded-2xl border border-red-200">
+                  <h4 className="text-xl font-bold text-red-800 mb-3">存档路径</h4>
+                  <p className="text-red-700 font-mono">AppData\\LocalLow\\Arvus Games\\Starmaker Story</p>
+                </div>
               </div>
               
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">修改器使用建议</h3>
-                <ul className="space-y-3 text-slate-600">
-                  <li>• 建议使用官方推荐修改器</li>
-                  <li>• 避免同时使用多个修改器</li>
-                  <li>• 修改前备份存档文件</li>
-                  <li>• 注意版本兼容性问题</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">技术问题</h3>
-                <ul className="space-y-3 text-slate-600">
-                  <li>• 画面闪烁：更新显卡驱动</li>
-                  <li>• 声音异常：检查音频设置</li>
-                  <li>• 加载缓慢：清理磁盘空间</li>
-                  <li>• 崩溃问题：查看错误日志</li>
-                </ul>
+              <div className="space-y-6">
+                <div className="bg-indigo-50 p-4 rounded-2xl border border-indigo-200">
+                  <h4 className="text-xl font-bold text-indigo-800 mb-3">CE修改方法</h4>
+                  <p className="text-indigo-700">使用CE修改器，双浮点搜索数值进行修改。建议CE加速5倍为最佳，但注意在进门前必卡，请换回1倍速。</p>
+                  <p className="text-indigo-600 text-sm mt-2">可修改内容包括但不限于：金钱、粉丝、指向日期、锁日期、游戏血量、健身点击次数8次、点击绿条判定、训练一次等于5次</p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-teal-50 p-4 rounded-2xl border border-teal-200">
+                    <h4 className="text-lg font-bold text-teal-800 mb-2">怪物打法</h4>
+                    <p className="text-teal-700 text-sm">鼠标右键格挡，红色区域鼠标武器离开该区域即可。</p>
+                  </div>
+                  
+                  <div className="bg-pink-50 p-4 rounded-2xl border border-pink-200">
+                    <h4 className="text-lg font-bold text-pink-800 mb-2">跳舞小游戏</h4>
+                    <p className="text-pink-700 text-sm">鼠标碰到小星星得5分，大星星得1分，碰到物品扣分，碰到骷髅死亡。</p>
+                  </div>
+                  
+                  <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                    <h4 className="text-lg font-bold text-amber-800 mb-2">武器购买</h4>
+                    <p className="text-amber-700 text-sm">前往大师商店。生命值购买：前往医院找医生。</p>
+                  </div>
+                  
+                  <div className="bg-cyan-50 p-4 rounded-2xl border border-cyan-200">
+                    <h4 className="text-lg font-bold text-cyan-800 mb-2">存档备份</h4>
+                    <p className="text-cyan-700 text-sm">定期备份存档文件以防数据丢失。</p>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
+                  <h4 className="text-lg font-bold text-gray-800 mb-3">游戏技巧</h4>
+                  <ul className="text-gray-700 text-sm space-y-1">
+                    <li>• 游戏设置：根据设备性能调整画面设置以获得最佳体验</li>
+                    <li>• 快捷键：熟悉游戏快捷键可以提升操作效率</li>
+                    <li>• 任务追踪：使用任务日志追踪当前进度和目标</li>
+                    <li>• 多存档：建议使用多个存档位保存不同进度</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -486,59 +1017,10 @@ export default function App() {
               <h3 className="text-2xl font-bold text-slate-800 mb-6">全特征展示图</h3>
               <div className="flex justify-center">
                 <img 
-                  src="/images/全特效示意图.png" 
+                  src="/images/全特征示意图.png" 
                   alt="全特征展示图" 
-                  className="rounded-2xl max-w-full h-auto shadow-md"
+                  className="rounded-2xl w-full max-w-2xl shadow-md"
                 />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">角色特征系统</h3>
-                <ul className="space-y-3 text-slate-600">
-                  <li>• <strong>外貌特征</strong> - 发型、肤色、体型等</li>
-                  <li>• <strong>性格特征</strong> - 开朗、内向、傲娇等</li>
-                  <li>• <strong>能力特征</strong> - 智力、体力、魅力等</li>
-                  <li>• <strong>特殊特征</strong> - 隐藏属性、天赋技能</li>
-                  <li>• <strong>成长特征</strong> - 可培养属性和技能</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">视觉效果系统</h3>
-                <ul className="space-y-3 text-slate-600">
-                  <li>• <strong>战斗特效</strong> - 技能释放动画、暴击特效</li>
-                  <li>• <strong>剧情特效</strong> - 对话选项、好感度变化</li>
-                  <li>• <strong>环境特效</strong> - 天气变化、时间流逝</li>
-                  <li>• <strong>界面特效</strong> - 菜单动画、提示效果</li>
-                  <li>• <strong>隐藏特效</strong> - 彩蛋、特殊成就效果</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">特征解锁条件</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-4">基础特征</h4>
-                  <ul className="space-y-3 text-slate-600">
-                    <li>• 初始角色自带特征</li>
-                    <li>• 通过剧情解锁</li>
-                    <li>• 完成特定任务</li>
-                    <li>• 达到特定等级</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-4">隐藏特征</h4>
-                  <ul className="space-y-3 text-slate-600">
-                    <li>• 多周目解锁</li>
-                    <li>• 特殊条件触发</li>
-                    <li>• 限定活动获取</li>
-                    <li>• 彩蛋事件解锁</li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
@@ -552,80 +1034,64 @@ export default function App() {
               <p className="text-xl text-slate-500 max-w-2xl mx-auto">Starmaker Story 汉化工具使用指南及问题解决方案</p>
             </div>
             
-            <div className="space-y-8">
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">游戏攻略作者</h3>
-                <div className="space-y-4 text-slate-600">
-                  <p>司暴君的个人空间-哔哩哔哩【喜欢的可以充电支持】</p>
-                  <p>司暴君的抖音 - 抖音【喜欢的可以抖+支持】</p>
-                  <p className="font-bold">特别感谢名单：</p>
-                  <p className="text-center">➡➡➡点击查看 特别感谢名单 看看有没有你⬅⬅⬅</p>
-                  <p className="font-bold">攻略链接：</p>
-                  <p>Starmaker+Story+【造星物语】1.7详细攻略（持续更新）</p>
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">此汉化工具开发者</h3>
+              <div className="space-y-6 text-slate-600">
+                <p><strong>GitHub - bbepis/XUnity.AutoTranslator v4.12.0</strong></p>
+                <p>Starmaker Story 自从v1.4更新后用AutoTranslator的汉化工具会出现"口口口"这种无法正常汉化的情况，是因为游戏本身更换了新的字体，AutoTranslator作者提供的TMP字体无法兼容新字体导致的，所以我为各位臭宝准备了一个新的自制字体可以完美兼容此游戏和其他一些特殊字体游戏文本。</p>
+                <p>如果不会使用AutoTranslator的请自行查看视频：</p>
+                <p><a href="https://www.bilibili.com/video/BV1kL2VYAEoX/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-bold">AutoTranslator工具使用教程视频</a></p>
+                
+                <div className="pt-4">
+                  <h4 className="text-xl font-bold text-slate-800 mb-4">新字体下载链接</h4>
+                  <div className="space-y-3">
+                    <p><strong>百度网盘：</strong><a href="https://pan.baidu.com/s/1LOCtNXQ_Y0t3ING2CTng_A" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">https://pan.baidu.com/s/1LOCtNXQ_Y0t3ING2CTng_A</a> 【提取码】1t8t</p>
+                    <p><strong>蓝奏云：</strong><a href="https://wwuv.lanzouw.com/iCwK13586dzg" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">https://wwuv.lanzouw.com/iCwK13586dzg</a> 【提取码】g52j</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">此汉化工具开发者</h3>
-                <div className="space-y-4 text-slate-600">
-                  <p>GitHub - bbepis/XUnity.AutoTranslator v4.12.0</p>
-                  <p>Starmaker Story 自从v1.4更新后用AutoTranslator的汉化工具会出现"口口口"这种无法正常汉化的情况，是因为游戏本身更换了新的字体，AutoTranslator作者提供的TMP字体无法兼容新字体导致的，所以我为各位臭宝准备了一个新的自制字体可以完美兼容此游戏和其他一些特殊字体游戏文本。</p>
-                  <p>如果不会使用AutoTranslator的请自行查看视频：</p>
-                  <p className="font-bold">https://www.bilibili.com/video/BV1kL2VYAEoX/</p>
-                </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">使用方法</h3>
-                <div className="space-y-4 text-slate-600">
-                  <p>首先把下载好的字体放在游戏的根目录</p>
-                  <p>在游戏目录下AutoTranslator文件夹下打开Config.ini</p>
-                  <p>在Config.ini 按Ctrl+F快速搜索"OverrideFontTextMeshPro"和"FallbackFontTextMeshPro"在等号后面更改成新的字体文件名即可</p>
-                  <p className="font-bold">如下图：</p>
+                
+                <div className="pt-6">
+                  <h4 className="text-xl font-bold text-slate-800 mb-4">使用方法</h4>
+                  <div className="space-y-3">
+                    <p>首先把下载好的字体放在游戏的根目录</p>
+                    <p>在游戏目录下AutoTranslator文件夹下打开Config.ini</p>
+                    <p>在Config.ini 按Ctrl+F快速搜索"OverrideFontTextMeshPro"和"FallbackFontTextMeshPro"在等号后面更改成新的字体文件名即可</p>
+                    <p className="font-bold">如下图：</p>
                   <div className="flex justify-center">
                     <img 
                       src="/images/如下图展示.png" 
                       alt="字体配置示意图" 
-                      className="rounded-2xl max-w-full h-auto shadow-md"
+                      className="rounded-2xl w-full max-w-2xl shadow-md"
+                    />
+                  </div>
+                  </div>
+                </div>
+                
+                <div className="pt-6">
+                  <h4 className="text-xl font-bold text-slate-800 mb-4">翻译后效果</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <img 
+                      src="/images/汉化后效果1.png" 
+                      alt="汉化效果展示1" 
+                      className="rounded-2xl w-full shadow-md"
+                    />
+                    <img 
+                      src="/images/汉化图效果2.png" 
+                      alt="汉化效果展示2" 
+                      className="rounded-2xl w-full shadow-md"
                     />
                   </div>
                 </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">翻译后效果</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <img 
-                    src="/images/汉化后效果1.png" 
-                    alt="汉化效果展示1" 
-                    className="rounded-2xl w-full h-auto shadow-md"
-                  />
-                  <img 
-                    src="/images/汉化图效果2.png" 
-                    alt="汉化效果展示2" 
-                    className="rounded-2xl w-full h-auto shadow-md"
-                  />
-                </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">新字体下载链接</h3>
-                <div className="space-y-4 text-slate-600">
-                  <p>百度网盘【提取码】1t8t</p>
-                  <p>备用链接：蓝奏云【提取码】g52j</p>
-                  <p className="font-bold">Starmaker+Story+【造星物语】1.7详细攻略（持续更新）：点击这里查看完整版攻略</p>
-                  <p>（翻译功能最好有魔法上网梯子配合才会有最好的效果，部分人可以直接使用）</p>
-                  <p>什么翻译不出来，什么卡翻译，有关这些问题的请你先了解怎么用魔法/梯子再用这个插件</p>
-                  <p className="text-center font-bold">别忘了给小UP点赞评论点个关注，感谢~</p>
-                </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">支持作者</h3>
-                <div className="space-y-4 text-slate-600 text-center">
-                  <p className="text-2xl">🤩🤩🤩 纯凭心意对攻略作者进行 支持和投喂 为爱发电 🤩🤩🤩</p>
-                  <p className="text-2xl">💗💗💗感谢各位臭宝的支持 比心💗💗💗</p>
-                  <p className="font-bold">➡➡➡ 点击查看 特别感谢名单 看看有没有你 ⬅⬅⬅</p>
+                
+                <div className="pt-6">
+                  <h4 className="text-xl font-bold text-slate-800 mb-4">支持作者</h4>
+                  <p>如果这个汉化工具对你有帮助，欢迎投喂支持作者：</p>
+                  <button 
+                    onClick={() => setIsDonationOpen(true)}
+                    className="mt-3 px-6 py-3 bg-red-500 text-white rounded-xl font-bold hover:bg-red-600 transition-colors"
+                  >
+                    投喂支持作者
+                  </button>
                 </div>
               </div>
             </div>
@@ -656,10 +1122,10 @@ export default function App() {
 
               {/* Hero Content */}
               <div className="absolute inset-0 p-16 flex flex-col justify-center max-w-3xl text-white z-10">
-                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-sm font-bold tracking-widest uppercase mb-6 w-fit">
-                  <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
-                  Online v1.0
-                </div>
+        <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-sm font-bold tracking-widest uppercase mb-6 w-fit">
+          <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+          Online v1.1
+        </div>
                 <h1 className="text-7xl font-black mb-6 tracking-tighter leading-tight">
                   造星物语<br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">详细攻略档案</span>
@@ -692,7 +1158,8 @@ export default function App() {
                     key={idx}
                     onClick={() => setHeroImageIndex(idx)}
                     className={`h-2 rounded-full transition-all ${idx === heroImageIndex ? 'w-12 bg-white' : 'w-3 bg-white/40'}`}
-                    title={`切换到幻灯片 ${idx + 1}`}
+                    title={`切换幻灯片`}
+                    aria-label={`切换幻灯片`}
                   />
                 ))}
               </div>
@@ -700,6 +1167,18 @@ export default function App() {
 
             {/* Quick Access Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* 文字攻略卡片 */}
+              <div 
+                onClick={() => window.open('https://docs.google.com/document/d/1J4MwvOpk88d7ZKt7h7eyFrt6CSsVie5GIxE9v4I7NVU/edit?usp=sharing', '_blank')}
+                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
+              >
+                <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform">
+                  <BookOpen size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">文字攻略</h3>
+                <p className="text-base text-slate-500">详细游戏攻略、剧情分支及隐藏要素。</p>
+              </div>
+
               <div 
                 onClick={() => setCurrentView(ViewState.CHARACTER_LIST)}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
@@ -712,14 +1191,36 @@ export default function App() {
               </div>
 
               <div 
-                onClick={() => setCurrentView(ViewState.GAME_GUIDES)}
+                onClick={() => setCurrentView(ViewState.VACATION_GUIDES)}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
               >
                 <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
-                  <Gamepad2 size={32} />
+                  <Plane size={32} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">游戏百科</h3>
-                <p className="text-base text-slate-500">系统玩法、节日活动、常见问题解答。</p>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">度假旅行</h3>
+                <p className="text-base text-slate-500">热带假期、霜度假期、日本度假完整攻略。</p>
+              </div>
+
+              <div 
+                onClick={() => setCurrentView(ViewState.FESTIVALS)}
+                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
+              >
+                <div className="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-6 group-hover:scale-110 transition-transform">
+                  <PartyPopper size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">节日</h3>
+                <p className="text-base text-slate-500">情人节、万圣节、圣诞节等节日活动攻略。</p>
+              </div>
+
+              <div 
+                onClick={() => setCurrentView(ViewState.FULL_EFFECTS)}
+                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
+              >
+                <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
+                  <Zap size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">全特征展示</h3>
+                <p className="text-base text-slate-500">游戏内所有特征、属性及视觉效果展示。</p>
               </div>
 
               <div 
@@ -734,10 +1235,21 @@ export default function App() {
               </div>
 
               <div 
+                onClick={() => setCurrentView(ViewState.FAQ)}
+                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
+              >
+                <div className="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-600 mb-6 group-hover:scale-110 transition-transform">
+                  <HelpCircle size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">常见问题</h3>
+                <p className="text-base text-slate-500">常见卡死修复、修改器建议及操作指引。</p>
+              </div>
+
+              <div 
                 onClick={() => setCurrentView(ViewState.CHANGELOG)}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
               >
-                <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform">
                   <History size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-3">更新日志</h3>
@@ -751,8 +1263,8 @@ export default function App() {
                 <div className="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-600 mb-6 group-hover:scale-110 transition-transform">
                   <HeartHandshake size={32} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">鸣谢名单</h3>
-                <p className="text-base text-slate-500">感谢所有提供反馈和支持的玩家。</p>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">关于作者</h3>
+                <p className="text-base text-slate-500">关注作者、鸣谢名单及支持方式。</p>
               </div>
 
               <div 
@@ -770,22 +1282,11 @@ export default function App() {
                 onClick={() => alert('期待后续更新')}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
               >
-                <div className="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-600 mb-6 group-hover:scale-110 transition-transform">
                   <MessageCircle size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-3">玩家反馈</h3>
                 <p className="text-base text-slate-500">期待后续更新，欢迎提供宝贵建议。</p>
-              </div>
-
-              <div 
-                onClick={() => setCurrentView(ViewState.GAME_GUIDES)}
-                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all cursor-pointer group"
-              >
-                <div className="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-600 mb-6 group-hover:scale-110 transition-transform">
-                  <Info size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">基础问答</h3>
-                <p className="text-base text-slate-500">常见卡死修复、修改器建议及操作指引。</p>
               </div>
             </div>
           </div>
@@ -836,30 +1337,30 @@ export default function App() {
           </div>
         </header>
 
-        {/* Content Area */}
-        <div className="flex-1 overflow-y-auto p-10 pt-2 relative scroll-smooth">
-          <div className="max-w-[1600px] mx-auto">
-            {renderContent()}
-          </div>
+      {/* Content Area */}
+      <div className="flex-1 overflow-y-auto p-10 pt-2 relative scroll-smooth">
+        <div className="max-w-[1600px] mx-auto">
+          {renderContent()}
         </div>
-      </main>
+      </div>
+    </main>
 
-      {/* Modals */}
-      {selectedCharacter && (
-        <Suspense fallback={<LoadingSpinner />}>
-          <CharacterDetail 
-            character={selectedCharacter} 
-            onClose={() => setSelectedCharacter(null)} 
-          />
-        </Suspense>
-      )}
+    {/* Modals */}
+    {selectedCharacter && (
+      <Suspense fallback={<LoadingSpinner />}>
+        <CharacterDetail 
+          character={selectedCharacter} 
+          onClose={() => setSelectedCharacter(null)} 
+        />
+      </Suspense>
+    )}
 
-      <DonationModal 
-        isOpen={isDonationOpen} 
-        onClose={() => setIsDonationOpen(false)} 
-      />
-    </div>
-  );
+    <DonationModal 
+      isOpen={isDonationOpen} 
+      onClose={() => setIsDonationOpen(false)} 
+    />
+  </div>
+);
 };
 
 const LoadingSpinner = () => (

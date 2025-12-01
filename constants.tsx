@@ -42,24 +42,9 @@ export const HACKER_CODES: HackerCode[] = [
 // Update Logs
 export const GAME_CHANGELOG: UpdateLog[] = [
   {
-    version: "1.6B",
-    date: "2024-12-20",
+    version: "有版本更新内容",
+    date: "持续更新",
     changes: [
-      "新增节日系统：情人节、万圣节、圣诞节等特殊剧情",
-      "增加多个新角色和隐藏剧情",
-      "优化游戏性能和稳定性",
-      "修复已知bug和问题",
-      "游戏更新详细内容请查看官方网站：https://arvusgames.itch.io/starmakerstory"
-    ]
-  },
-  {
-    version: "1.5",
-    date: "2024-10-15",
-    changes: [
-      "新增野外旅行系统",
-      "增加多个支线任务",
-      "优化UI界面和用户体验",
-      "修复部分剧情bug",
       "游戏更新详细内容请查看官方网站：https://arvusgames.itch.io/starmakerstory"
     ]
   }
@@ -75,6 +60,7 @@ export const TOOL_CHANGELOG: UpdateLog[] = [
       "新增节日、特殊事件、基础攻略、常见问题、全特效展示图、汉化问题页面",
       "更新侧边栏导航结构",
       "优化页面布局和用户体验"
+      
     ]
   },
   {
@@ -92,14 +78,12 @@ export const TOOL_CHANGELOG: UpdateLog[] = [
 
 // Author Information
 export const AUTHOR_INFO = {
-  name: "Starmaker Archives",
+  name: "司暴君",
   description: "为《造星物语》玩家提供最全面的攻略和工具支持",
   supportMessage: "如果这个工具对你有帮助，请考虑支持一下作者！",
   platforms: [
-    { name: "GitHub", link: "https://github.com", icon: "💻" },
     { name: "Bilibili", link: "https://space.bilibili.com/30964521?spm_id_from=333.1387.0.0", icon: "📺" },
-    { name: "抖音", link: "https://www.douyin.com/user/MS4wLjABAAAAWwSM3NnmEU7SDAl0r0POjk34gSZZ1SFYz0JXM0a_YOPylnDyF4ODBBnD-Ld5wDs5?from_tab_name=main", icon: "🎵" },
-    { name: "Discord", link: "https://discord.com", icon: "💬" }
+    { name: "抖音", link: "https://www.douyin.com/user/MS4wLjABAAAAWwSM3NnmEU7SDAl0r0POjk34gSZZ1SFYz0JXM0a_YOPylnDyF4ODBBnD-Ld5wDs5?from_tab_name=main", icon: "🎵" }
   ],
   qrWechat: "images/微信.png",
   qrAlipay: "images/支付宝.png"

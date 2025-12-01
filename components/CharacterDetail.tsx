@@ -22,6 +22,24 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
   const characterImages = getCharacterImages();
   const hasMultipleImages = characterImages.length > 1;
 
+  const baseUrl = (import.meta as any).env?.BASE_URL || '/';
+  const resolvePath = (p?: string) => {
+    if (!p) return '';
+    // if already absolute (starts with '/'), prepend base if base isn't '/'
+    if (p.startsWith('/')) {
+      return baseUrl === '/' ? p : `${baseUrl.replace(/\/$/, '')}${p}`;
+    }
+    return `${baseUrl}${p}`;
+  };
+
+  const getRouteImage = (keyword: string, fallbackFile: string) => {
+    const found = characterImages.find((img) => img.includes(keyword));
+    return resolvePath(found || `/images/${fallbackFile}`);
+  };
+  // Treat any character with role 'SYSTEM' as the system guide (FAQ/basic guides)
+  // Keep id fallback for compatibility.
+  const isSystemGuide = character.role === 'SYSTEM' || character.id === 'system_guide';
+
   // Navigation functions
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % characterImages.length);
@@ -78,43 +96,47 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
           </div>
           <button 
             onClick={onClose} 
-            className="group p-3 rounded-full hover:bg-slate-100 transition-colors"
+            aria-label="关闭档案"
+            className="ui-button ui-icon"
           >
-            <X size={32} className="text-slate-400 group-hover:text-slate-700 transition-colors" />
+            <X size={24} className="text-slate-600" />
           </button>
         </div>
 
         {/* Layout */}
         <div className="flex flex-1 overflow-hidden">
           {/* Left Sidebar - Image & Info (Fixed) */}
+          {!isSystemGuide && (
           <div className="w-96 bg-slate-50/80 border-r border-slate-100 p-8 flex flex-col gap-8 overflow-y-auto shrink-0 hidden lg:flex">
             {/* Image Carousel */}
             <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-lg border-4 border-white relative group">
               <img 
-                src={characterImages[currentImageIndex]} 
-                alt={`${character.name} - 图片 ${currentImageIndex + 1}`} 
+                src={resolvePath(characterImages[currentImageIndex])} 
+                alt={`${character.name} 图片`} 
                 className="w-full h-full object-cover transition-all duration-500" 
               />
               
               {/* Navigation Arrows - Only show if multiple images */}
-              {hasMultipleImages && (
-                <>
-                  <button 
-                    onClick={prevImage}
-                    title="上一张图片"
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100 border border-slate-200"
-                  >
-                    <ChevronLeft size={24} className="text-slate-700" />
-                  </button>
-                  <button 
-                    onClick={nextImage}
-                    title="下一张图片"
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100 border border-slate-200"
-                  >
-                    <ChevronRight size={24} className="text-slate-700" />
-                  </button>
-                </>
-              )}
+                  {hasMultipleImages && (
+                    <>
+                      <button 
+                        onClick={prevImage}
+                        title="上一张"
+                        aria-label="上一张"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 ui-button ui-icon opacity-0 group-hover:opacity-100 border border-slate-200"
+                      >
+                        <ChevronLeft size={20} className="text-slate-700" />
+                      </button>
+                      <button 
+                        onClick={nextImage}
+                        title="下一张"
+                        aria-label="下一张"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 ui-button ui-icon opacity-0 group-hover:opacity-100 border border-slate-200"
+                      >
+                        <ChevronRight size={20} className="text-slate-700" />
+                      </button>
+                    </>
+                  )}
               
               {/* Image Indicator Dots */}
               {hasMultipleImages && (
@@ -123,41 +145,23 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      title={`查看图片 ${index + 1}`}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === currentImageIndex 
-                          ? 'bg-white scale-125' 
-                          : 'bg-white/50 hover:bg-white/80'
-                      }`}
-                    />
+                      title={`切换图片`}
+                      aria-label={`切换图片`}
+                      className={`transition-all duration-300 ${index === currentImageIndex ? 'scale-125' : ''}`}
+                    >
+                      <span className={`ui-dot ${index === currentImageIndex ? 'bg-white' : ''}`} />
+                    </button>
                   ))}
                 </div>
               )}
               
               {/* Image Counter */}
-              {hasMultipleImages && (
-                <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white text-sm px-3 py-1.5 rounded-full font-mono">
-                  {currentImageIndex + 1} / {characterImages.length}
-                </div>
-              )}
+              {/* image counter removed to avoid numeric ordering */}
             </div>
 
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <h4 className="text-slate-400 text-xs uppercase tracking-widest font-bold mb-4 flex items-center gap-2">
-                  <MapPin size={16} /> 出现区域
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {character.locations.map(loc => (
-                    <span key={loc} className="px-3 py-1.5 bg-slate-100 text-sm rounded-lg text-slate-600 font-bold border border-slate-200">
-                      {loc}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
+              <div className="space-y-6">
               {character.unlockConditions && (
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <div className="ui-card">
                   <h4 className="text-slate-400 text-xs uppercase tracking-widest font-bold mb-4 flex items-center gap-2">
                     <Key size={16} /> 解锁/触发条件
                   </h4>
@@ -168,12 +172,13 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
               )}
             </div>
           </div>
+          )}
 
           {/* Right Content Area (Scrollable) */}
           <div className="flex-1 overflow-y-auto bg-white scroll-smooth p-10">
             <div className="max-w-5xl mx-auto space-y-16 pb-24">
-              
-              {/* Profile Section */}
+              {!isSystemGuide ? (
+              /* Profile Section */
               <section className="space-y-8">
                 <div className="flex items-center gap-4 pb-4 border-b border-slate-100">
                   <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-xl shadow-lg">
@@ -188,7 +193,7 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                   
                   {/* Special Route Visualization for Anna */}
                   {character.id === 'anna' && (
-                    <div className="mt-8 p-6 bg-white/80 rounded-2xl border border-slate-200 shadow-sm">
+                    <div className="ui-card mt-8">
                       <h4 className="text-slate-800 font-bold mb-6 text-lg flex items-center gap-2">
                         <span className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full"></span>
                         路线选择可视化
@@ -197,7 +202,7 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                         <div className="text-center">
                           <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border-4 border-emerald-200 mb-4">
                             <img 
-                              src="/starmaker-archives/images/安娜善良.png" 
+                              src={getRouteImage('善良', '安娜善良.png')}
                               alt="安娜善良路线" 
                               className="w-full h-full object-cover" 
                             />
@@ -210,7 +215,7 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                         <div className="text-center">
                           <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border-4 border-red-200 mb-4">
                             <img 
-                              src="/starmaker-archives/images/安娜堕落.png" 
+                              src={getRouteImage('堕落', '安娜堕落.png')}
                               alt="安娜堕落路线" 
                               className="w-full h-full object-cover" 
                             />
@@ -226,7 +231,7 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                 </div>
 
                 {character.tips && character.tips.length > 0 && (
-                  <div className="bg-gradient-to-br from-amber-50/80 to-orange-50/50 border border-amber-200 p-8 rounded-3xl shadow-lg">
+                  <div className="ui-card">
                     <h4 className="text-amber-600 font-bold mb-4 flex items-center gap-2 text-base uppercase tracking-wider">
                       <AlertTriangle size={20} className="text-amber-500" /> 
                       重要提示
@@ -242,8 +247,28 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                   </div>
                 )}
               </section>
+              ) : (
+                /* If this is the system guide, only show guideSteps (FAQ content) */
+                <section className="space-y-8">
+                  <div className="flex items-center gap-4 pb-4 border-b border-slate-100">
+                    <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
+                      <ArrowRight size={28} />
+                    </div>
+                    <h3 className="text-3xl font-black text-slate-800">常见问题</h3>
+                  </div>
+                  <div className="space-y-6">
+                    <div className="ui-card">
+                      <ul className="space-y-3 text-slate-600">
+                        {character.guideSteps.map((item, i) => (
+                          <li key={i} className="leading-relaxed text-lg">{renderRichText(item)}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+              )}
 
-              {/* Guide Section */}
+              {!isSystemGuide && (
               <section className="space-y-8">
                 <div className="flex items-center gap-4 pb-4 border-b border-slate-100">
                   <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
@@ -259,10 +284,10 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                   {character.guideSteps.map((step, idx) => (
                     <div key={idx} className="flex gap-8 relative pb-8 group last:pb-0">
                       <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center text-slate-400 font-mono font-bold text-lg shadow-sm group-hover:border-win-accent group-hover:text-win-accent group-hover:scale-110 transition-all shrink-0">
-                        {idx + 1}
+                        <span className="w-3 h-3 rounded-full bg-slate-300" />
                       </div>
                       <div className="flex-1 pt-1">
-                        <div className="bg-white p-6 rounded-3xl border border-slate-200 text-slate-700 text-lg leading-loose shadow-[0_2px_12px_rgba(0,0,0,0.02)] group-hover:shadow-md group-hover:border-blue-200 transition-all">
+                        <div className="ui-card">
                           {renderRichText(step)}
                         </div>
                       </div>
@@ -270,9 +295,10 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
                   ))}
                 </div>
               </section>
+              )}
 
               {/* Routes Section */}
-              {character.routes && character.routes.length > 0 && (
+              {!isSystemGuide && character.routes && character.routes.length > 0 && (
                 <section className="space-y-8">
                   <div className="flex items-center gap-4 pb-4 border-b border-slate-100">
                     <div className="p-3 bg-purple-50 text-purple-600 rounded-xl">
@@ -283,15 +309,13 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({ character, onClose })
 
                   <div className="grid grid-cols-1 gap-8">
                     {character.routes.map((route, idx) => (
-                      <div key={idx} className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
+                      <div key={idx} className="ui-card overflow-hidden">
                         <div className="bg-slate-50 px-8 py-5 border-b border-slate-100 flex justify-between items-center">
                           <h4 className="font-bold text-slate-800 flex items-center gap-3 text-xl">
                             <CheckCircle2 size={24} className="text-green-500" />
                             {route.name}
                           </h4>
-                          <span className="text-xs text-slate-400 font-mono bg-white px-3 py-1.5 rounded-lg border border-slate-100 font-bold">
-                            ROUTE {String(idx + 1).padStart(2, '0')}
-                          </span>
+                          {/* removed numeric route index to avoid 1/2/3 ordering */}
                         </div>
                         <div className="p-8 bg-white">
                           <ul className="space-y-4">
