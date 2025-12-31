@@ -22,7 +22,7 @@ export default function App() {
 
   useEffect(() => {
     const fetchCharacters = async () => {
-      const response = await fetch('/data/characters.json');
+      const response = await fetch('/starmaker-archives/data/characters.json');
       const data = await response.json();
       setCharacters(data);
     };
@@ -31,10 +31,10 @@ export default function App() {
 
   // Custom hero images for the carousel
   const heroCharacters = [
-    { id: 'hero-1', avatarUrl: '/images/1.png' },
-    { id: 'hero-2', avatarUrl: '/images/2.png' },
-    { id: 'hero-3', avatarUrl: '/images/3.png' },
-    { id: 'hero-4', avatarUrl: '/images/4.png' }
+    { id: 'hero-1', avatarUrl: '/starmaker-archives/images/1.png' },
+    { id: 'hero-2', avatarUrl: '/starmaker-archives/images/2.png' },
+    { id: 'hero-3', avatarUrl: '/starmaker-archives/images/3.png' },
+    { id: 'hero-4', avatarUrl: '/starmaker-archives/images/4.png' }
   ];
 
   useEffect(() => {
